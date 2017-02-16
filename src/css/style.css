@@ -1,4 +1,22 @@
 body {
 	background-color: rgb(200,56,97);
+}
 
+#container {
+	width: 300px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+.leftNav {
+	width: 100px;
+	height: 200px;
+	margin: 0 auto;
+	float:left;
+}
+
+.rightContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
 }
