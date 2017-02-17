@@ -18,6 +18,9 @@ module.exports = {
 		new webpack.optimize.OccurrenceOrderPlugin(), //Chunks id s by occurance count
 		new HtmlWebpackPlugin({
 			template:'./src/index.html'
+		}),
+		new DefinePlugin({
+			'process.env.NODE_ENV' : JSON.stringify('production')
 		})
 	],
 	module:{ //section where loaders are specified
@@ -25,6 +28,11 @@ module.exports = {
 			{
 				test: /\.css$/, //Regular expression to files where loader will be applied
 				loaders: ['style-loader','css-loader','sass-loader'] //Array of loaders. Loaders are applied from right to left. It's no longer allowed to omit the '-loader' suffix when using loaders.
+			},
+			{
+				test: /\.js$/, //Regular expression to files where loader will be applied
+				loaders: ['babel-loader'], //Array of loaders. Loaders are applied from right to left. It's no longer allowed to omit the '-loader' suffix when using loaders.
+				include: path.join(__dirname, 'src')
 			}
 		]
 	}
