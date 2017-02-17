@@ -13,7 +13,6 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({ //The plugin that minifies the js code
 			compressor: {
 				warnings:false
-				warnings:false
 			}
 		}),
 		new webpack.optimize.OccurrenceOrderPlugin(), //Chunks id s by occurance count
