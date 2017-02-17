@@ -1,3 +1,7 @@
+require('../css/style.css');
 require('./server/api.js');
 require('./client/client.js');
-require('../css/style.css');
+
+if(module.hot) {
+	module.hot.accept();
+}

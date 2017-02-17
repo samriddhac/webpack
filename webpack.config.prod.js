@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+	devtool: 'source-map',
 	entry: ['./src/js/index.js'], //Webpack allows multiple entry points
 	output: {
 		path: path.join(__dirname, 'dist'), //--dirname : Always points to the directory where the script resides. . refers to the location from where node is getting executed.
@@ -11,6 +12,7 @@ module.exports = {
 	plugins:[ //Array that holds all the plugins
 		new webpack.optimize.UglifyJsPlugin({ //The plugin that minifies the js code
 			compressor: {
+				warnings:false
 				warnings:false
 			}
 		}),

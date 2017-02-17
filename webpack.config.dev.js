@@ -3,7 +3,11 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: ['./src/js/index.js'], //Webpack allows multiple entry points
+	devtool: 'cheap-eval-source-map',
+	entry: [
+		//'webpack-dev-server/client?http://localhost:8080',
+		//'webpack/hot/devserver',
+		'./src/js/index.js'], //Webpack allows multiple entry points
 	output: {
 		path: path.join(__dirname, 'dist'), //--dirname : Always points to the directory where the script resides. . refers to the location from where node is getting executed.
 		filename: 'bundle.js'
@@ -11,7 +15,6 @@ module.exports = {
 	plugins:[ //Array that holds all the plugins
 		new webpack.optimize.UglifyJsPlugin({ //The plugin that minifies the js code
 			compressor: {
-				warnings:false
 				warnings:false
 			}
 		}),
@@ -27,5 +30,9 @@ module.exports = {
 				loaders: ['style-loader','css-loader','sass-loader'] //Array of loaders. Loaders are applied from right to left. It's no longer allowed to omit the '-loader' suffix when using loaders.
 			}
 		]
+	},
+	devServer: {
+		contentBase:'./dist',
+		hot: true
 	}
 }
